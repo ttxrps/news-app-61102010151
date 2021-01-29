@@ -1,0 +1,29 @@
+{% extends 'base_layout.html' %}
+
+{% block body %}
+    <div class="weather">
+        <h1>{{weather.temperature}}&#8451</h1>
+        <h2><b>{{weather.city}}, {{weather.country}}</b></h2>
+        <h3><i class="icon"><img src="/static/{{weather.icon}}" alt=""></i>{{weather.description}}</h3>
+        <p>ความกดอากาศ : {{weather.pressure}}</p>
+        <p>ความชื้น : {{weather.humidity}}</p>
+        <p>ความเร็วลม : {{weather.wind}}</p>
+        <form class="form">
+            <input type="text" name="city" placeholder="weather search...">
+            <input type="submit" value="ค้นหา">
+        </form>
+    </div>
+
+    <div class="covid-19">
+        <h1>Daily News About Covid-19</h1>
+        {% for new,des,i,link in context %}
+        <div class="news">
+            <img  src="{{i}}"/>
+            <h2>{{new}}</h2>
+            <h3>{{des}}</h3>
+            <a href="{{link}}" target="_blank">Read More</a>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

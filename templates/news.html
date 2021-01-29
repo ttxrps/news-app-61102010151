@@ -1,0 +1,28 @@
+{% extends 'base_layout.html' %}
+
+{% block body %}
+<div class="search-news">
+    <div class="topnews">
+        <div class="top-left">
+            <a href="">NEWS</a>
+        </div>
+        <form class="form">
+            <input
+            type="text"
+            name="news"
+            class="src-news"
+            placeholder="ค้นหาข่าวที่คุณสนใจ..."
+            />
+            <input type="submit" value="ค้นหา" class="search" />
+        </form>
+    </div>
+    {% for new,des,link in context %}
+    <div class="content-news">
+        <h2>{{new}}</h2>
+        <h3>{{des}}</h3>
+        <br>
+        <a href="{{link}}" target="_blank">Read More</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
